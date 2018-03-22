@@ -37,6 +37,8 @@ drawButtons();
 
 $("#buttons").on("click", ".clickMe", function(){
 
+    $("#gifs").empty();
+
     var fillBlank = $(this).text();
     
     $.ajax({
