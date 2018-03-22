@@ -1,4 +1,4 @@
-var topics = ["cat", "dog", "bird", "fish", "hippo"];
+var topics = ["happy", "sad", "mad", "afraid", "excited", "bored", "anxious", "nervous", "impatient", "hungry", "tired"];
 
 var drawButtons = function(){
 
@@ -35,7 +35,7 @@ drawButtons();
 // };
 
 
-$(".clickMe").on("click", function(){
+$("#buttons").on("click", ".clickMe", function(){
 
     var fillBlank = $(this).text();
     
@@ -72,25 +72,17 @@ $(".clickMe").on("click", function(){
 
 });
 
-// var hello;
-
 $("#submitButton").on("click", function(){
 
     event.preventDefault();
 
-    var hello = $("#newAnimal").val();
+    var newFeel = $("#newFeeling").val();
 
-    // // Tried another way, but no change
-    // hello = $("#inputForm").find('input[name="newAnimal"]').val();
-
-    // When I use the debugger, hello is in the array
-    topics.push(hello);
+    topics.push(newFeel);
 
     drawButtons();
 
-    // This pops up in the console for a split second and disappears
-    // when I use the debugger, topics includes the user input for hello
-    console.log(topics);
+    // console.log(topics);
 
 });
 
