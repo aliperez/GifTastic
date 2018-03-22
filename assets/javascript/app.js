@@ -2,6 +2,8 @@ var topics = ["cat", "dog", "bird", "fish", "hippo"];
 
 var drawButtons = function(){
 
+    $("#buttons").empty();
+    
     for (var j = 0; j < topics.length; j++){
 
         var newButton = $("<button>");
@@ -73,6 +75,8 @@ $(".clickMe").on("click", function(){
 // var hello;
 
 $("#submitButton").on("click", function(){
+
+    event.preventDefault();
 
     var hello = $("#newAnimal").val();
 
