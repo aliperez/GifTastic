@@ -1,0 +1,43 @@
+#buttons{
+    width: 70%;
+    padding: 20px;
+}
+
+button{
+    padding: 10px;
+    margin: 20px;
+    border-radius: 20%;
+    background: lightgreen;
+}
+
+form{
+    float: right;
+    margin: 40px;
+    border: 3px solid black;
+    padding: 20px;
+}
+
+label, input{
+    margin: 10px;
+}
+
+#gifs{
+    width: 70%;
+}
+
+img{
+    height: 100px;
+    /* width: 100px;  */
+    margin: 20px;
+    margin-bottom: -20px;
+    border: 3px solid black;
+
+}
+
+p{
+    margin-left: 20px;
+}
+
+.floatMe{
+    float: left;
+}
