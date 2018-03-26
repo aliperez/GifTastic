@@ -18,22 +18,6 @@ var drawButtons = function(){
 
 drawButtons();
 
-// // Tried to get divs on the page before populating them, but only worked for the last one, come back to this later
-// for (var k = 0; k < 10 ; k++){
-    
-//     var imageDiv = $("<div>");
-//     var oneImage = $("<img>");
-//     var newCaption = $("<p>");
-
-//     imageDiv.attr("class", "floatMe");
-
-//     imageDiv.append(oneImage);
-//     imageDiv.append(newCaption);
-    
-//     gifs.append(imageDiv);
-
-// };
-
 
 $("#buttons").on("click", ".clickMe", function(){
 
@@ -46,7 +30,7 @@ $("#buttons").on("click", ".clickMe", function(){
         method: "GET"
 
     }).then(function (response) {
-        // console.log(response);
+        console.log(response);
     
         var gifs = $("#gifs");
         
@@ -56,7 +40,7 @@ $("#buttons").on("click", ".clickMe", function(){
             var oneImage = $("<img>");
             var newCaption = $("<p>");
 
-            var gifImage = response.data[i].images.preview_gif.url;
+            var gifImage = response.data[i].images.original.url;
             oneImage.attr("src", gifImage);
 
             newCaption.text("Rating: " + response.data[i].rating);
