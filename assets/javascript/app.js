@@ -40,7 +40,7 @@ $("#buttons").on("click", ".clickMe", function(){
             var oneImage = $("<img>");
             var newCaption = $("<p>");
 
-            var gifImage = response.data[i].images.original.url;
+            var gifImage = response.data[i].images.preview_gif.url;
             oneImage.attr("src", gifImage);
 
             newCaption.text("Rating: " + response.data[i].rating);
