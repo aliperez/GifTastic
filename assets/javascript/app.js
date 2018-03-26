@@ -1,5 +1,6 @@
 var topics = ["happy", "sad", "mad", "afraid", "excited", "bored", "anxious", "nervous", "impatient", "hungry", "tired"];
 
+
 var drawButtons = function(){
 
     $("#buttons").empty();
@@ -16,6 +17,7 @@ var drawButtons = function(){
 
 };
 
+
 drawButtons();
 
 
@@ -30,7 +32,6 @@ $("#buttons").on("click", ".clickMe", function(){
         method: "GET"
 
     }).then(function (response) {
-        console.log(response);
     
         var gifs = $("#gifs");
         
@@ -40,8 +41,14 @@ $("#buttons").on("click", ".clickMe", function(){
             var oneImage = $("<img>");
             var newCaption = $("<p>");
 
-            var gifImage = response.data[i].images.preview_gif.url;
-            oneImage.attr("src", gifImage);
+            var gifStillImage = response.data[i].images.original_still.url;
+            var gifAnimateImage = response.data[i].images.original.url;
+
+            oneImage.attr("src", gifStillImage);
+            oneImage.attr("data-still", gifStillImage);
+            oneImage.attr("data-animate", gifAnimateImage);
+            oneImage.attr("data-state", "still");
+            oneImage.attr("class", "oneGif");
 
             newCaption.text("Rating: " + response.data[i].rating);
 
@@ -58,6 +65,29 @@ $("#buttons").on("click", ".clickMe", function(){
 
 });
 
+
+
+$("body").on("click", ".oneGif", function(){
+
+    var state = $(this).attr("data-state");
+
+    var animateURL = $(this).attr("data-animate");
+    var stillURL = $(this).attr("data-still");
+
+    if (state === "still"){
+        $(this).attr("src", animateURL);
+        $(this).attr("data-state", "animate");
+    }
+
+    if (state === "animate"){
+        $(this).attr("src", stillURL);
+        $(this).attr("data-state", "still");
+    }
+
+});
+
+
+
 $("#submitButton").on("click", function(){
 
     event.preventDefault();
@@ -67,8 +97,6 @@ $("#submitButton").on("click", function(){
     topics.push(newFeel);
 
     drawButtons();
-
-    // console.log(topics);
 
 });
 
